@@ -9,7 +9,7 @@
 import UIKit
 
 class coupleTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -96,10 +96,10 @@ class coupleTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let destVC = segue.destination as! ViewController
-        let selectedCouple = couple_array[self.tableView.indexPathForSelectedRow!.row]
-        destVC.coupleForView = selectedCouple
+        if (segue.identifier == "detailView") {
+            let destVC = segue.destination as! ViewController
+            let selectedCouple = couple_array[self.tableView.indexPathForSelectedRow!.row]
+            destVC.coupleForView = selectedCouple
+        }
     }
- 
-
 }
